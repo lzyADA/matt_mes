@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>包中抽奖</title>
+  <style>
+    .start {
+      border: 5px solid #4caf50;
+      background: transparent;
+      font-size: 18px;
+      padding: 8px 22px;
+      color: #4caf50;
+      outline: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .start:active {
+      background: #4caf50;
+      color: white;
+    }
+
+    .lottery {
+      font-size: 22px;
+      color: red;
+    }
+
+    .prize {
+      color: red;
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button class="start">戳我抽奖!</button>
+  </div>
+  <div class="result">
+  </div>
+  <script>
+    var prizeList = ['5年高考3年模拟', '加班一天', '快乐水一罐'];
+
+    var startBtn = document.querySelector('.start');
+    var resultEle = document.querySelector('.result');
+
+    startBtn.addEventListener('click', function() {
+      var prize = Math.floor(Math.random() * 3 + 1);
+
+      var text = [
+      '恭喜！抽到了 ',
+      '<span class="lottery">',
+      prize,
+      '</span>',
+      ' 等奖！奖品是 ',
+      '<span class="prize">',
+      prizeList[prize - 1],
+      '</span>',
+      '！',
+      ].join('');
+
+      resultEle.innerHTML = text;
+    });
+  </script>
+</body>
+</html>
